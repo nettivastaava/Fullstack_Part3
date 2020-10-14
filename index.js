@@ -17,28 +17,28 @@ app.use(morgan(' :method :url :status :res[content-length] - :response-time ms :
 let persons = [
   {
     id: 1,
-    name: "Arto Hellas",
-    number: "040-123456"
+    name: 'Arto Hellas',
+    number: '040-123456'
   },
   {
     id: 2,
-    name: "Ada Lovelace",
-    number: "39-44-5323523"
+    name: 'Ada Lovelace',
+    number: '39-44-5323523'
   },
   {
     id: 3,
-    name: "Kartsa",
-    number: "12-43-234345"
+    name: 'Kartsa',
+    number: '12-43-234345'
   },
   {
     id: 4,
-    name: "Mary Poppendick",
-    number: "39-23-6423122" 
+    name: 'Mary Poppendick',
+    number: '39-23-6423122' 
   }
 ]
 
 app.get('/', (request, response) => {
-    response.send('<h1>Hello World!</h1>')
+  response.send('<h1>Hello World!</h1>')
 })
 
 app.get('/api/persons', (request, response) => {
@@ -76,10 +76,10 @@ app.put('/api/persons/:id', (request, response, next) => {
 
 app.delete('/api/persons/:id', (request, response, next) => {
   Person.findByIdAndRemove(request.params.id)
-  .then(result => {
-    response.status(204).end()
-  })
-  .catch(error => next(error))
+    .then(result => {
+      response.status(204).end()
+    })
+    .catch(error => next(error))
 })
 
 const generateId = () => {
